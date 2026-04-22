@@ -1,0 +1,34 @@
+# --- NODE.JS (User & Product Service) ---
+**/node_modules/
+**/npm-debug.log*
+**/yarn-error.log*
+.npm
+.eslintcache
+
+# --- LARAVEL (Order Service) ---
+/order-service/vendor/
+/order-service/.env
+/order-service/.env.backup
+/order-service/storage/*.key
+/order-service/storage/framework/cache/data/*
+/order-service/storage/framework/sessions/*
+/order-service/storage/framework/views/*
+/order-service/storage/logs/*.log
+/order-service/bootstrap/cache/*
+/order-service/public/storage
+/order-service/public/hot
+
+# --- DATABASE & TEMP ---
+.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+auth.json
+*.db
+*.sqlite
+
+# --- OPERATING SYSTEM ---
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
