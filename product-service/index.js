@@ -51,3 +51,5 @@ app.patch('/products/:id/reduce-stock', (req, res) => {
 app.listen(3000, () => {
     console.log("Product Service (Node.js) berjalan di http://localhost:3000");
 });
+
+//update terakhir buat UTS
