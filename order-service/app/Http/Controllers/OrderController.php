@@ -35,12 +35,24 @@ class OrderController extends Controller
             'qty' => $request->qty
         ]);
 
+        //Nembak ke Payment Service (Laravel Port 8001)
+        // Asumsi harga barang per item adalah Rp 50.000
+        $totalHarga = $request->qty * 50000; 
+        $paymentUrl = "http://127.0.0.1:8001/api/payments";
+        
+        $paymentResponse = Http::post($paymentUrl, [
+            'order_id' => $order->id, // Mengirim UUID Order yang baru dibuat
+            'user_id'  => $request->user_id,
+            'amount'   => $totalHarga
+        ]);
+
         // 4. Kembalikan jawaban lengkap ke Postman
         return response()->json([
             'status' => 'Order Created Successfully!',
             'data_order' => $order,
             'user_service_info' => $userResponse->json(),
-            'product_service_info' => $productResponse->json()
+            'product_service_info' => $productResponse->json(),
+            'payment_service_info' => $paymentResponse->json()
         ]);
     }
 }
